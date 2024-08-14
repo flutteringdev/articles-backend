@@ -1,11 +1,14 @@
 // app.js
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const authRouter = require('./routes/auth');
 const authorRouter = require('./routes/author');
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+app.use(cors());
 
 // Static file serving for uploaded images
 app.use('/uploads', express.static('uploads'));
